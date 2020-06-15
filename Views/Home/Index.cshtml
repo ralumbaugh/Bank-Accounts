@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model WrapperModel
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form asp-action="Register" asp-controller="Home" method="post">
+                    <h3>Register a user</h3>
+                    <div class="form-group">
+                        <span asp-validation-for="NewUser.FirstName"></span>
+                        <label asp-asp-for="NewUser.FirstName">First Name: </label>
+                        <input asp-for="NewUser.FirstName">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="NewUser.LastName"></span>
+                        <label asp-asp-for="NewUser.LastName">Last Name: </label>
+                        <input asp-for="NewUser.LastName">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="NewUser.Email"></span>
+                        <label asp-asp-for="NewUser.Email">Email: </label>
+                        <input asp-for="NewUser.Email">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="NewUser.Password"></span>
+                        <label asp-asp-for="NewUser.Password">Password: </label>
+                        <input asp-for="NewUser.Password">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="NewUser.Confirm"></span>
+                        <label asp-asp-for="NewUser.Confirm">Confirm Password: </label>
+                        <input asp-for="NewUser.Confirm">
+                    </div>
+                    <button class="btn btn-primary">Sign Up Now</button>
+                </form>
+            </div>
+            <div class="col-sm">
+                <form asp-action="Login" asp-controller="Home" method="post">
+                    <h3>Log In</h3>
+                    <div class="form-group">
+                        <span asp-validation-for="LoginUser.Email"></span>
+                        <label asp-asp-for="LoginUser.Email">Email: </label>
+                        <input asp-for="LoginUser.Email">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="LoginUser.Password"></span>
+                        <label asp-asp-for="LoginUser.Password">Password: </label>
+                        <input asp-for="LoginUser.Password">
+                    </div>
+                    <button class="btn btn-primary">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>

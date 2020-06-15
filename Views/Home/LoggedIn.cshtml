@@ -1,0 +1,30 @@
+@model UserWrapper
+<div class="row">
+    <h1>Congrats, @Model.CurrentUser.FirstName, you did it</h1>
+    <p>Current balance: @Model.Balance</p>
+</div>
+<form asp-action="Transaction" asp-controller="Home" method="POST">
+    <div class="row">
+        <p>Deposit/Withdraw:</p>
+        <input asp-for="NewTransaction.Amount">
+        <button>Submit</button>
+    </div>
+    <span asp-validation-for="NewTransaction.Amount"></span>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Transaction transaction in Model.CurrentUser.TransactionHistory)
+            {
+                <tr>
+                    <td>@transaction.Amount</td>
+                    <td>@transaction.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
